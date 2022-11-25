@@ -1,0 +1,131 @@
+.prod-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4rem;
+    row-gap: 10.3rem;
+    margin-bottom: 19rem;
+}
+
+.category-name {
+    font-size: 4.2rem;
+    line-height: 67.2px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    margin: 8rem 0 8.76rem 0;
+}
+
+.prod-card {
+    width: 38.6rem;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: left;
+    transition: 0.3s;
+    position: relative;
+}
+
+.prod-card:hover {
+    box-shadow: 0 4px 35px rgba(168, 172, 176, 0.25);
+}
+
+.fix {
+    text-decoration: none;
+    color: #1D1F22;
+}
+
+.prod-card .title {
+    margin-top: 2.4rem;
+    font-size: 1.8rem;
+    line-height: 160%;
+    font-weight: 300;
+    align-self: stretch;
+}
+
+.prod-card .price {
+    margin-top: 0;
+    font-size: 1.8rem;
+    align-self: stretch;
+
+}
+
+.prod-img {
+    height: 34rem;
+    width: auto;
+    max-width: 35.6rem;
+}
+
+.prod-card:nth-child(8) img {
+    height: auto;
+}
+
+.prod-card-oos {
+    box-shadow: none;
+    width: 38.6rem;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: left;
+    transition: 0.3s;
+    position: relative;
+    opacity: .5;
+}
+
+.prod-card-oos .title {
+    margin-top: 2.4rem;
+    font-size: 1.8rem;
+    line-height: 160%;
+    font-weight: 300;
+    align-self: stretch;
+}
+
+.prod-card-oos .price {
+    margin-top: 0;
+    font-size: 1.8rem;
+    align-self: stretch;
+}
+
+.prod-card-oos:after {
+    content: 'OUT OF STOCK';
+    z-index: 100;
+    position: absolute;
+    right: 25.71%;
+    top: 44.24%;
+    font-size: 2.4rem;
+    line-height: 3.84rem;
+    font-weight: 400;
+    color: #8D8F9A;
+
+}
+
+
+.quick-add {
+    display: none;
+    position: absolute;
+    top: 32rem;
+    left: 30rem;
+    padding: 1.4rem;
+    border: none;
+    border-radius: 50%;
+    fill: white;
+    background-color: #5ECE7B;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.prod-card:hover .quick-add {
+    display: initial;
+}
+
+.quick-add:hover {
+    background-color: #52b46c;
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.15);
+}
+
+.quick-add:active {
+    background-color: #3e8852;
+}

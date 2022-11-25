@@ -1,0 +1,133 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0 3rem 0;
+    position: relative;
+}
+
+nav .logo {
+    margin-left: -18.5rem;
+}
+
+.categories {
+    list-style: none;
+    display: flex;
+    padding-right: 3.2rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+.category {
+    padding: 0 1.6rem 3rem 1.6rem;
+    transition: 0.2s;
+    text-decoration: none;
+    color: #1D1F22;
+}
+
+.category:hover,
+.category:active,
+.category.active {
+    border-bottom: #5ECE7B 2px solid;
+    color: #5ECE7B;
+}
+
+.nav-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    gap: 22px;
+}
+
+
+.select-btn {
+    all: unset;
+    border-color: #ffffff;
+    outline: none;
+    font-size: 1.8rem;
+    display: flex;
+    width: 3.8rem;
+    gap: 1rem;
+    background: #FFFFFF;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+    padding: .5rem;
+    transform: translate(.5rem);
+}
+
+.select-btn:hover {
+    background-color: #EEEEEE;
+}
+
+.arrow {
+    font-size: .6rem;
+}
+
+.arrow-active {
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.select-menu {
+    display: none;
+    transition: .2s;
+
+}
+
+.select-menu-open {
+    position: absolute;
+    width: 11.4rem;
+    right: -2rem;
+    top: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+}
+
+.option-btn {
+    all: unset;
+    border: none;
+    background-color: #FFFFFF;
+    outline: none;
+    padding: 1rem 0 1rem 2rem;
+    font-size: 1.8rem;
+    line-height: 2.88rem;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.option-btn:hover {
+    background-color: #EEEEEE;
+}
+
+.cart-btn {
+    cursor: pointer;
+}
+
+.cart {
+    position: relative;;
+}
+
+.badge {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 60px;
+    background: #1D1F22;
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    transform: translate(30%, -40%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}

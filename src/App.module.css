@@ -1,0 +1,29 @@
+.App {
+    margin: auto;
+    width: 124rem;
+    position: relative;
+}
+.arrow {
+    font-size: .6rem;
+}
+
+.arrow-active {
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.select-menu {
+    display: none;
+    transition: .2s;
+
+}
+
+.select-menu-open {
+    position: absolute;
+    width: 11.4rem;
+    right: -2rem;
+    top: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+}
