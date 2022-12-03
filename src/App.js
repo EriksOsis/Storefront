@@ -1,12 +1,11 @@
-import React, {useContext, useEffect, useState, useRef} from "react";
+import React, {useEffect, useState} from "react";
 import classes from './App.module.css';
 import {Redirect, Route, Switch} from "react-router-dom";
-import Product from "./components/Product List/Product";
+import ProductList from "./components/Product List/ProductList";
 import {Nav} from "./components/UI/Nav";
 import {ProductPage} from "./components/Product List/ProductPage";
 import {gql} from "@apollo/client";
-import {CartContext} from "./store/Cart_context";
-import {CartProvider} from "./store/Cart_provider";
+import {Bag} from "./components/Cart/Bag/Bag";
 
 const PRODUCTS_QUERY = gql`
 {
@@ -53,10 +52,6 @@ function App() {
     const [dropdownClasses, setDropdownClasses] = useState(classes['select-menu']);
     const [arrowClasses, setArrowClasses] = useState(classes.arrow);
 
-    const amountInputRef = useRef();
-
-    const cartContext = useContext(CartContext);
-
     useEffect(() => {
         function dropDownCloser(event) {
             if (event.path[0].tagName !== 'BUTTON') {
@@ -86,35 +81,26 @@ function App() {
         setArrowClasses(classes['arrow']);
     }
 
-
-    function onAddToCartHandler() {
-        console.log(cartContext.items.length);
-        cartContext.addItem({
-            name: 'product',
-            amount: 1
-        });
-    }
-
     return (
         <Switch>
             <Route path={'/'} exact>
                 <Redirect to={'/products-list/:category'}/>
             </Route>
-            <CartProvider>
-                <div className={classes["App"]}>
-                    <Nav onConvert={currencyHandler} onOpen={dropdownHandler}
-                         arrowClasses={arrowClasses}
-                         dropDownClasses={dropdownClasses} currencyId={currency} query={CURRENCY_QUERY}/>
-                    <Route path={'/products-list/:category'} exact>
-                        <Redirect to={'/products-list/all'}/>
-                        <Product ref={amountInputRef} currencyId={currency} query={PRODUCTS_QUERY}
-                                 onAddToCart={onAddToCartHandler}/>
-                    </Route>
-                    <Route path={'/product/:id'}>
-                        <ProductPage currencyId={currency} query={PRODUCTS_QUERY}/>
-                    </Route>
-                </div>
-            </CartProvider>
+            <div className={classes["App"]}>
+                <Nav onConvert={currencyHandler} onOpen={dropdownHandler}
+                     arrowClasses={arrowClasses}
+                     dropDownClasses={dropdownClasses} currencyId={currency} query={CURRENCY_QUERY}/>
+                <Route path={'/products-list/:category'} exact>
+                    <Redirect to={'/products-list/all'}/>
+                    <ProductList currencyId={currency} query={PRODUCTS_QUERY}/>
+                </Route>
+                <Route path={'/product/:id'}>
+                    <ProductPage currencyId={currency} query={PRODUCTS_QUERY}/>
+                </Route>
+                <Route path={'/bag'}>
+                    <Bag currencyId={currency}/>
+                </Route>
+            </div>
         </Switch>
     );
 }

@@ -1,82 +1,52 @@
 import {Link} from "react-router-dom";
 import classes from './Cart.module.css';
 import {Modal} from "./Modal";
+import React, {useContext} from "react";
+import {CartContext} from "../../store/Cart_context";
+import {CartItem} from "./CartItem";
 
 export function Cart(props) {
+
+    const cartContext = useContext(CartContext);
+
+    const totalAmount = cartContext.totalAmount.toFixed(2);
+
+    function cartItemAddHandler(item) {
+        cartContext.addItem({...item, amount: 1});
+    }
+
+    function cartItemRemoveHandler(id) {
+        cartContext.removeItem(id);
+    }
 
     return (
         <Modal onClose={props.onClose} className={classes.modal}>
             <div className={classes.cart}>
-                <h1 className={classes.top}>My Bag, <span>3 items</span></h1>
-                <div className={classes['cart-item']}>
-                    <div className={classes['item-info']}>
-                        <p className={classes['item-title']}>Apollo Running Short</p>
-                        <p className={classes['item-price']}>$50.00</p>
-                        <p className={classes['attribute-title']}>Size:</p>
-                        <div className={classes.attributes}>
-                            <button className={classes['cart-btn']}>XS</button>
-                            <button className={classes['cart-btn']}>S</button>
-                            <button className={classes['cart-btn']}>M</button>
-                            <button className={classes['cart-btn']}>L</button>
-                        </div>
-                        <p className={classes['attribute-title']}>Color:</p>
-                        <div className={classes.attributes}>
-                            <button className={classes.color} style={{backgroundColor: "green"}}></button>
-                            <button className={classes.color} style={{backgroundColor: "cyan"}}></button>
-                            <button className={classes.color} style={{backgroundColor: "blue"}}></button>
-                            <button className={classes.color} style={{backgroundColor: "black"}}></button>
-                            <button className={classes.color} style={{backgroundColor: "white"}}></button>
-                        </div>
-                    </div>
-                    <div className={classes.amount}>
-                        <button className={classes['cart-btn']}>+</button>
-                        <p>1</p>
-                        <button className={classes['cart-btn']}>-</button>
-                    </div>
-                    <div className={classes['cart-img']}>
-                        <img
-                            src={'https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087'}
-                            alt={'Cart item'}/>
-                    </div>
-                </div>
-                <div className={classes['cart-item']}>
-                    <div className={classes['item-info']}>
-                        <p className={classes['item-title']}>Apollo Running Short</p>
-                        <p className={classes['item-price']}>$50.00</p>
-                        <p className={classes['attribute-title']}>Size:</p>
-                        <div className={classes.attributes}>
-                            <button className={classes['cart-btn']}>XS</button>
-                            <button className={classes['cart-btn']}>S</button>
-                            <button className={classes['cart-btn']}>M</button>
-                            <button className={classes['cart-btn']}>L</button>
-                        </div>
-                        <p className={classes['attribute-title']}>Color:</p>
-                        <div className={classes.attributes}>
-                            <button className={classes.color} style={{backgroundColor: "green"}}></button>
-                            <button className={classes.color} style={{backgroundColor: "cyan"}}></button>
-                            <button className={classes.color} style={{backgroundColor: "blue"}}></button>
-                            <button className={classes.color} style={{backgroundColor: "black"}}></button>
-                            <button className={classes.color} style={{backgroundColor: "white"}}></button>
-                        </div>
-                    </div>
-                    <div className={classes.amount}>
-                        <button className={classes['cart-btn']}>+</button>
-                        <p>1</p>
-                        <button className={classes['cart-btn']}>-</button>
-                    </div>
-                    <div className={classes['cart-img']}>
-                        <img
-                            src={'https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087'}
-                            alt={'Cart item'}/>
-                    </div>
-                </div>
+                <h1 className={classes.top}>
+                    My Bag, <span>{props.numOfCartItems} item{props.numOfCartItems === 1 ? '' : 's'}</span></h1>
+                {cartContext.items.map((item) =>
+                    <CartItem
+                        key={item.id}
+                        initId={item.initId}
+                        id={item.id}
+                        name={item.name}
+                        brand={item.brand}
+                        prices={item.prices}
+                        currencyId={props.currencyId}
+                        attributes={item.attributes}
+                        gallery={item.gallery}
+                        amount={item.amount}
+                        onAdd={cartItemAddHandler.bind(null, item)}
+                        onRemove={cartItemRemoveHandler.bind(null, item.id)}
+                    />
+                )}
                 <div className={classes['cart-total']}>
                     <p>Total</p>
-                    <p className={classes.bold}>$200.00</p>
+                    <p className={classes.bold}>{props.currencyId}{totalAmount}</p>
                 </div>
                 <div className={classes.actions}>
-                    <Link className={classes['view-bag']}>VIEW BAG</Link>
-                    <Link className={classes['check-out']}>CHECK OUT</Link>
+                    <Link to={'/bag'} onClick={props.onClose} className={classes['view-bag']}>VIEW BAG</Link>
+                    <Link to={'/bag'} className={classes['check-out']}>CHECK OUT</Link>
                 </div>
             </div>
         </Modal>

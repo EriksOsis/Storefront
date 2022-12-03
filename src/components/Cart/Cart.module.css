@@ -4,7 +4,6 @@
     top: 7.8rem;
     z-index: 1000;
     background: #ffffff;
-
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
@@ -12,6 +11,17 @@
     width: 32.5rem;
     height: auto;
     animation: slide-down 300ms ease-out forwards;
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .top {
@@ -62,8 +72,9 @@
 }
 
 .cart-btn {
-    width: 2.4rem;
+    width: auto;
     height: 2.4rem;
+    padding: 0 .6rem;
     border: 1px solid #1D1F22;
     background-color: #fff;
     color: #1D1F22;
@@ -71,15 +82,19 @@
     line-height: 2.24rem;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 400;
-    transition: .15s;
-    cursor: pointer;
-
 }
 
-.cart-btn:hover,
-.cart-btn:active {
+.selected {
     color: #fff;
     background-color: #1D1F22;
+}
+
+.amount-btn:hover,
+.amount-btn:active {
+    color: #fff;
+    background-color: #1D1F22;
+    transition: .15s;
+    cursor: pointer;
 }
 
 .color {
@@ -87,12 +102,9 @@
     height: 1.6rem;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(222, 222, 222) 0px 0px 0px 1px;
-    cursor: pointer;
-    transition: .2s;
 }
 
-.color:hover {
-    box-sizing: border-box;
+.color-selected {
     border: 1px solid #5ECE7B;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(94, 206, 123) 0px 0px 0px 1px;
 }
@@ -114,10 +126,17 @@
 .cart-img {
     height: 19rem;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 .cart-img img {
     height: 100%;
+    transition: .3s;
+}
+
+.cart-img img:hover {
+    scale: 1.1;
 }
 
 .cart-total {
@@ -160,9 +179,39 @@
     color: #1D1F22;
 }
 
+.view-bag:hover {
+    background: #1D1F22;
+    color: #FFFFFF;
+}
+
 .check-out {
     color: #FFFFFF;
     background: #5ECE7B;
     border: none;
 }
 
+/*cart position on screen*/
+
+@media (max-width: 103.7em) {
+    .cart {
+        right: 10%;
+    }
+}
+
+@media (max-width: 96em) {
+    .cart {
+        right: 7%;
+    }
+}
+
+@media (max-width: 93em) {
+    .cart {
+        right: 5%;
+    }
+}
+
+@media (max-width: 85em) {
+    .cart {
+        right: 2%;
+    }
+}

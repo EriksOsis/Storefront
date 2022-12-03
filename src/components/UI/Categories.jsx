@@ -10,7 +10,7 @@ const CATEGORY_QUERY = gql`
   }
 }`;
 
-export const Categories = () => {
+export const Categories = (props) => {
 
     const {data, loading, error} = useQuery(CATEGORY_QUERY);
 
@@ -19,7 +19,10 @@ export const Categories = () => {
     return (
         <div className={classes.categories}>
             {data.categories.map((category) =>
-            <li key={category.name}><NavLink to={`/products-list/${category.name}`} exact className={classes.category} activeClassName={classes.active}>{category.name.toUpperCase()}</NavLink></li>
+                <li key={category.name} onClick={props.onClose}>
+                    <NavLink to={`/products-list/${category.name}`} exact className={classes.category}
+                             activeClassName={classes.active}>{category.name.toUpperCase()}</NavLink>
+                </li>
             )}
         </div>
     )

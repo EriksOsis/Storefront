@@ -1,0 +1,207 @@
+/***********************
+* styles for bag page
+***********************/
+.bag-page {
+    margin: 8rem 0 27rem;
+}
+
+.header {
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 40px;
+    margin-bottom: 5.5rem;
+}
+
+
+hr {
+    border: 1px solid #E5E5E5;
+}
+
+.numbers {
+    width: 18rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .8rem;
+    font-size: 2.4rem;
+    line-height: 24px;
+}
+
+span {
+    font-weight: 700;
+    text-align: left;
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6rem 3.2rem;
+    width: 27.9rem;
+    height: 4.3rem;
+    background: #5ECE7B;
+    border: none;
+    margin-top: .8rem;
+    cursor: pointer;
+    transition: .2s;
+
+    font-weight: 600;
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    line-height: 16.8px;
+}
+
+.order:hover {
+    background: #52b46c;
+}
+
+.order:active {
+    background: #3e8852;
+}
+
+/************************
+* styles for bag items
+************************/
+
+.wrapper {
+    margin-bottom: 3.2rem;
+}
+
+.bag-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 2.4rem 0;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.item-brand {
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 27px;
+}
+
+.item-title {
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 27px;
+}
+
+.item-price {
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 24px;
+}
+
+.attributes {
+    display: flex;
+    gap: .8rem;
+}
+
+.attribute-title {
+    font-family: 'Roboto Condensed', serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 18px;
+    margin-bottom: .8rem;
+}
+
+.cart-btn {
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 1px solid #1D1F22;
+    background: #FFFFFF;
+    font-family: 'Source Sans Pro', serif;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.05rem;
+    color: #1D1F22;
+    transition: .2s;
+}
+
+.cart-btn:hover {
+    background: #1D1F22;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.select {
+    font-weight: 400;
+    font-size: 1.6rem;
+    width: 6.3rem;
+    height: 4.5rem;
+}
+
+.color {
+    box-sizing: border-box;
+    width: 3.2rem;
+    height: 3.2rem;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(222, 222, 222) 0px 0px 0px 1px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.color:hover {
+    border: 1px solid #5ECE7B;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(94, 206, 123) 0px 0px 0px 1px;
+}
+
+.amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amount p {
+    font-size: 2.4rem;
+}
+
+.bag-img {
+    width: 20rem;
+    height: 28.8rem;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.bag-img img {
+     height: 100%;
+     width: auto;
+ }
+
+.carousel {
+    display: flex;
+    gap: .8rem;
+    position: absolute;
+    left: 12.8rem;
+    top: 24.8rem;
+}
+
+.carousel-btn {
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: rgba(0, 0, 0, 0.73);
+}
+
+.carousel-btn:hover,
+.carousel-btn:active {
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    gap: 2.4rem;
+}
