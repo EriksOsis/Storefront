@@ -57,8 +57,9 @@
     max-width: 35.6rem;
 }
 
-.prod-card:nth-child(8) img {
+.prod-card:last-child img {
     height: auto;
+    max-height: 30rem;
 }
 
 .prod-card-oos {

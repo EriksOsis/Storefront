@@ -8,10 +8,10 @@
     min-height: 100%;
     z-index: 100;
     background: rgba(57, 55, 72, 0.22);
-    animation: slide-down .3s ease-out forwards;
+    animation: appear .3s ease-out forwards;
 }
 
-@keyframes slide-down {
+@keyframes appear {
     from {
         opacity: 0;
     }
