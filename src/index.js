@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {ApolloProvider, ApolloClient, InMemoryCache} from "@apollo/client";
 import {BrowserRouter} from "react-router-dom";
-import {CartProvider} from "./store/Cart_provider";
 
 const client = new ApolloClient({
     uri: "http://localhost:4000/",
@@ -16,9 +15,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <ApolloProvider client={client}>
         <BrowserRouter>
-            <CartProvider>
-                <App/>
-            </CartProvider>
+            <App/>
         </BrowserRouter>
     </ApolloProvider>
 );

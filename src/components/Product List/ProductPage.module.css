@@ -102,6 +102,11 @@ h2 {
     background-color: #1D1F22;
 }
 
+.selected {
+    background-color: #1D1F22;
+    color: #fff;
+}
+
 .color {
     width: 3.2rem;
     height: 3.2rem;
@@ -112,10 +117,13 @@ h2 {
 }
 
 .color:hover {
-    box-sizing: border-box;
     border: 1px solid #5ECE7B;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(94, 206, 123) 0px 0px 0px 1px;
+}
 
+.color-selected {
+    border: 1px solid #5ECE7B;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(94, 206, 123) 0px 0px 0px 1px;
 }
 
 .price {

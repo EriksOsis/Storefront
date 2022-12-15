@@ -127,10 +127,9 @@ span {
     transition: .2s;
 }
 
-.cart-btn:hover {
-    background: #1D1F22;
-    color: #ffffff;
-    cursor: pointer;
+.selected {
+    color: #fff;
+    background-color: #1D1F22;
 }
 
 .select {
@@ -150,9 +149,15 @@ span {
     transition: .2s;
 }
 
-.color:hover {
+.color-selected {
     border: 1px solid #5ECE7B;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(94, 206, 123) 0px 0px 0px 1px;
+}
+
+.hover:hover {
+    background-color: #1D1F22;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 .amount {
@@ -176,9 +181,9 @@ span {
 }
 
 .bag-img img {
-     height: 100%;
-     width: auto;
- }
+    height: 100%;
+    width: auto;
+}
 
 .carousel {
     display: flex;
