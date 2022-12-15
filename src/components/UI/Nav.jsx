@@ -26,7 +26,6 @@ export class Nav extends React.Component {
 
     render() {
         const {items} = this.context;
-
         const numOfCartItems = items.reduce((curNumber, item) => {
             return curNumber + item.amount;
         }, 0);
@@ -35,7 +34,6 @@ export class Nav extends React.Component {
             {({loading, error, data}) => {
                 if (loading) return 'Loading...';
                 if (error) return <pre>{error.message}</pre>;
-
 
                 return (
                     <div className={classes.all}>

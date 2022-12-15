@@ -33,7 +33,7 @@ function cartReducer(state, action) {
 
         return {
             items: updatedItems,
-            totalAmount: updatedTotalAmount
+            totalAmount: updatedTotalAmount,
         }
     }
 
@@ -57,7 +57,7 @@ function cartReducer(state, action) {
 
         return {
             items: updatedItems,
-            totalAmount: updatedTotalAmount
+            totalAmount: updatedTotalAmount,
         }
     }
 

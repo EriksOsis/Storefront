@@ -26,34 +26,37 @@ export class Cart extends React.Component {
         const totalAmount = this.context.totalAmount.toFixed(2);
 
         return (
-            <Modal onClose={this.props.onClose} className={classes.modal}>
+            <Modal onClose={this.props.onClose}>
                 <div className={classes.cart}>
                     <h1 className={classes.top}>
-                        My Bag, <span>{this.props.numOfCartItems} item{this.props.numOfCartItems === 1 ? '' : 's'}</span>
+                        My
+                        Bag, <span>{this.props.numOfCartItems} item{this.props.numOfCartItems === 1 ? '' : 's'}</span>
                     </h1>
-                    {this.context.items.map((item) =>
-                        <CartItem
-                            key={item.id}
-                            initId={item.initId}
-                            id={item.id}
-                            name={item.name}
-                            brand={item.brand}
-                            prices={item.prices}
-                            currencyId={this.props.currencyId}
-                            attributes={item.attributes}
-                            gallery={item.gallery}
-                            amount={item.amount}
-                            onAdd={this.cartItemAddHandler.bind(null, item)}
-                            onRemove={this.cartItemRemoveHandler.bind(null, item.id)}
-                        />
-                    )}
+                    <div className={classes['cart-items']}>
+                        {this.context.items.map((item) =>
+                            <CartItem
+                                key={item.id}
+                                initId={item.initId}
+                                id={item.id}
+                                name={item.name}
+                                brand={item.brand}
+                                prices={item.prices}
+                                currencyId={this.props.currencyId}
+                                attributes={item.attributes}
+                                gallery={item.gallery}
+                                amount={item.amount}
+                                onAdd={this.cartItemAddHandler.bind(null, item)}
+                                onRemove={this.cartItemRemoveHandler.bind(null, item.id)}
+                            />
+                        )}
+                    </div>
                     <div className={classes['cart-total']}>
                         <p>Total</p>
-                        <p className={classes.bold}>{this.props.currencyId}{totalAmount}</p>
+                        <p className={classes.bold}>${totalAmount}</p>
                     </div>
                     <div className={classes.actions}>
                         <Link to={'/bag'} onClick={this.props.onClose} className={classes['view-bag']}>VIEW BAG</Link>
-                        <Link to={'/bag'} className={classes['check-out']}>CHECK OUT</Link>
+                        <Link to={'/bag'} onClick={this.props.onClose} className={classes['check-out']}>CHECK OUT</Link>
                     </div>
                 </div>
             </Modal>

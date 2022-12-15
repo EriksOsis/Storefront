@@ -23,6 +23,9 @@ export class Bag extends React.Component {
     render() {
         const totalAmount = this.context.totalAmount.toFixed(2);
         const tax = (totalAmount * 0.21).toFixed(2);
+        const numOfCartItems = this.context.items.reduce((curNumber, item) => {
+            return curNumber + item.amount;
+        }, 0);
 
         return (
             <div className={classes['bag-page']}>
@@ -46,7 +49,7 @@ export class Bag extends React.Component {
                 )}
                 <div className={classes.numbers}>
                     <p>Tax 21%: </p><span>{this.props.currencyId + tax}</span>
-                    <p>Quantity: </p><span>{this.numOfCartItems}</span>
+                    <p>Quantity: </p><span>{numOfCartItems}</span>
                     <p>Total: </p><span>{this.props.currencyId + totalAmount}</span>
                 </div>
                 <button className={classes.order}>ORDER</button>

@@ -7,6 +7,7 @@ import ProductPage from "./components/Product List/ProductPage";
 import {gql} from "@apollo/client";
 import {Bag} from "./components/Cart/Bag/Bag";
 import {CartProvider} from "./store/Cart_provider";
+import {CartContext} from "./store/Cart_context";
 
 const PRODUCTS_QUERY = gql`
 {
@@ -49,6 +50,8 @@ const CURRENCY_QUERY = gql`
 }`;
 
 class App extends React.Component {
+    static contextType = CartContext;
+
     constructor(props) {
         super(props);
 
@@ -112,8 +115,8 @@ class App extends React.Component {
                     </Route>
                     <div className={classes["App"]}>
                         <Nav onConvert={this.currencyHandler} onOpen={this.dropdownHandler}
-                             arrowClasses={arrowClasses}
-                             dropDownClasses={dropdownClasses} currencyId={currency} query={CURRENCY_QUERY}/>
+                             arrowClasses={arrowClasses} dropDownClasses={dropdownClasses} currencyId={currency}
+                             query={CURRENCY_QUERY}/>
                         <Route path={'/products-list/:category'}
                                render={(props) => <React.Fragment>
                                    <Redirect to={'/products-list/all'}/>
