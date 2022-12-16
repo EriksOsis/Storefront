@@ -3,6 +3,19 @@
 ***********************/
 .bag-page {
     margin: 8rem 0 27rem;
+    animation: appear-up 1s;
+}
+
+@keyframes appear-up {
+    from {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .header {

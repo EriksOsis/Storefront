@@ -79,7 +79,7 @@ nav .logo {
 .select-menu {
     display: none;
     transition: .2s;
-
+    animation: appear-down .3s;
 }
 
 .select-menu-open {
@@ -92,7 +92,19 @@ nav .logo {
     padding-top: 1rem;
     box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
     z-index: 11000;
+    animation: appear-down .3s;
 
+}
+
+@keyframes appear-down {
+    from {
+        transform: translateY(-3rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .option-btn {
@@ -106,6 +118,7 @@ nav .logo {
     cursor: pointer;
     transition: .2s;
     z-index: 11000;
+    animation: appear-down .3s;
 }
 
 .option-btn:hover {
@@ -140,4 +153,15 @@ nav .logo {
     justify-content: center;
     text-transform: uppercase;
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    animation: pop-up .3s;
+}
+
+@keyframes pop-up {
+    from {
+        scale: 1.5;
+    }
+
+    to {
+        scale: 1;
+    }
 }

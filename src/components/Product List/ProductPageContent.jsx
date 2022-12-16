@@ -56,6 +56,7 @@ export class ProductPageContent extends Component {
         });
     }
 
+
     render() {
         const productId = `${this.props.id}_${Object.values(this.state.selectedAttributes).join('&')}`;
         const chosenAttributes = productId.substr(this.props.id.length + 1).split('&');

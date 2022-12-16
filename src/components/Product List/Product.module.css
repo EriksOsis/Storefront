@@ -4,6 +4,7 @@
     gap: 4rem;
     row-gap: 10.3rem;
     margin-bottom: 19rem;
+    animation: appear 2s;
 }
 
 .category-name {
@@ -120,9 +121,11 @@
 
 @keyframes appear {
     from {
+        transform: translateY(3rem);
         opacity: 0;
     }
     to {
+        transform: translateY(0);
         opacity: 1;
     }
 }

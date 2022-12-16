@@ -3,6 +3,18 @@
     display: grid;
     grid-template-columns: 9.6rem 60rem 35rem;
     gap: 2.7rem;
+    animation: appear-up .5s;
+}
+
+@keyframes appear-up {
+    from {
+        transform: translateY(3rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .gallery {
@@ -124,6 +136,20 @@ h2 {
 .color-selected {
     border: 1px solid #5ECE7B;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(94, 206, 123) 0px 0px 0px 1px;
+}
+
+.color-selected:focus {
+    animation: spin .2s;
+}
+
+@keyframes spin {
+    from {
+        rotate: -90deg;
+    }
+
+    to {
+        rotate: 0;
+    }
 }
 
 .price {

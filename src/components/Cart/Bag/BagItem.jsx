@@ -82,6 +82,7 @@ export class BagItem extends React.Component {
                         <div className={classes['bag-img']}>
                             <img src={this.props.gallery[this.state.imgGallery]}
                                  alt={`${this.props.name} in shopping cart`}/>
+                            {this.props.gallery.length > 1 &&
                             <div className={classes.carousel}>
                                 <div className={classes['carousel-btn']} onClick={this.previousImg}>
                                     <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
@@ -99,7 +100,7 @@ export class BagItem extends React.Component {
                                               strokeLinecap="round" strokeLinejoin="round"/>
                                     </svg>
                                 </div>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 </div>

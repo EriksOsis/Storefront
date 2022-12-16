@@ -2,7 +2,6 @@
     margin: auto;
     width: 124rem;
     position: relative;
-    animation: appear 2s
 }
 .arrow {
     font-size: .6rem;
@@ -29,12 +28,3 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
