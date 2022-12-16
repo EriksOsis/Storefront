@@ -48,9 +48,9 @@ export class Bag extends React.Component {
                     />
                 )}
                 <div className={classes.numbers}>
-                    <p>Tax 21%: </p><span>{this.props.currencyId + tax}</span>
+                    <p>Tax 21%: </p><span>{"$" + tax}</span>
                     <p>Quantity: </p><span>{numOfCartItems}</span>
-                    <p>Total: </p><span>{this.props.currencyId + totalAmount}</span>
+                    <p>Total: </p><span>{'$' + totalAmount}</span>
                 </div>
                 <button className={classes.order}>ORDER</button>
             </div>
