@@ -121,6 +121,10 @@ nav .logo {
     animation: appear-down .3s;
 }
 
+.option-selected {
+    background-color: #EEEEEE;
+}
+
 .option-btn:hover {
     background-color: #EEEEEE;
 }

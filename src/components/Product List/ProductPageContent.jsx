@@ -65,7 +65,7 @@ export class ProductPageContent extends Component {
             <div className={classes['product-page']}>
                 <section className={classes.gallery}>
                     {this.props.gallery.map((picture) =>
-                        <div>
+                        <div key={picture}>
                             <img src={picture} onClick={this.setImg} alt={'product gallery picture'}/>
                         </div>)}
                 </section>
@@ -77,7 +77,7 @@ export class ProductPageContent extends Component {
                     <h1>{this.props.brand}</h1>
                     <h1 className={classes.title}>{this.props.name}</h1>
                     {this.props.attributes.map((attribute) => (
-                        <div>
+                        <div key={attribute.name}>
                             <h2>{attribute.name.toUpperCase()}:</h2>
                             <div className={classes.attributes}>
                                 {
@@ -109,15 +109,18 @@ export class ProductPageContent extends Component {
                         </div>
                     ))}
                     <h2>PRICE:</h2>
-                    <p className={classes.price}>{this.props.prices.map((currency) => (
-                        currency.currency.symbol === this.props.currencyId) && (this.props.currencyId + currency.amount)
-                    )}</p>
-                    {this.props.inStock &&
-                        <button onClick={this.onAddToCartHandler} className={classes['add-to-cart']}>ADD TO
-                            CART</button>}
-                    <p className={classes.description}>
-                        {this.parse(this.props.description)}
+                    <p className={classes.price}>
+                        {this.props.prices.map((currency) => (
+                            currency.currency.symbol === this.props.currencyId) && (this.props.currencyId + currency.amount)
+                        )}
                     </p>
+                    {this.props.inStock &&
+                        <button onClick={this.onAddToCartHandler} className={classes['add-to-cart']}>
+                            ADD TO CART
+                        </button>}
+                    <div className={classes.description}>
+                        {this.parse(this.props.description)}
+                    </div>
                 </section>
             </div>
         )

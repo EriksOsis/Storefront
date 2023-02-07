@@ -20,7 +20,7 @@ export class CartItem extends React.Component {
                         )}
                     </p>
                     {this.props.attributes.map((attribute) => (
-                        <div>
+                        <div key={attribute.name}>
                             <p className={classes['attribute-title']}>{attribute.name}:</p>
                             <div className={classes.attributes}>
                                 {

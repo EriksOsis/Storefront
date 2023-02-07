@@ -66,11 +66,21 @@ class App extends React.Component {
     }
 
     componentDidMount() {
+        const storedCurrency = localStorage.getItem('currency');
+        if (storedCurrency) {
+            this.setState({ currency: storedCurrency });
+        }
         document.body.addEventListener('click', this.dropDownCloser);
     }
 
     componentWillUnmount() {
         document.body.removeEventListener('click', this.dropDownCloser);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.currency !== this.state.currency) {
+            localStorage.setItem('currency', this.state.currency);
+        }
     }
 
     dropDownCloser = (event) => {

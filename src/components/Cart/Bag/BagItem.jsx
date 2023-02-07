@@ -42,7 +42,7 @@ export class BagItem extends React.Component {
                             currency.currency.symbol === this.props.currencyId) && (this.props.currencyId + currency.amount))}
                         </p>
                         {this.props.attributes.map((attribute) => (
-                            <div>
+                            <div key={attribute.name}>
                                 <p className={classes['attribute-title']}>{attribute.name.toUpperCase()}:</p>
                                 <div className={classes.attributes}>
                                     {

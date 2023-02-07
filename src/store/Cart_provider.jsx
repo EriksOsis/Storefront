@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {CartContext} from "./Cart_context";
 import {useReducer} from "react";
 
@@ -66,7 +66,14 @@ function cartReducer(state, action) {
 
 export function CartProvider(props) {
 
-    const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState)
+    const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState, () => {
+        const persistedCart = localStorage.getItem("cartState");
+        return persistedCart ? JSON.parse(persistedCart) : defaultCartState;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("cartState", JSON.stringify(cartState));
+    }, [cartState]);
 
     function addItemsToCartHandler(item) {
         dispatchCartAction({type: 'ADD', item: item});

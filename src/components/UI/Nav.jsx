@@ -80,7 +80,9 @@ export class Nav extends React.Component {
                                 </button>
                                 <div className={this.props.dropDownClasses}>
                                     {data.currencies.map((currency) =>
-                                        <button key={currency.label} className={classes['option-btn']}
+                                        <button key={currency.label}
+                                                className={this.props.currencyId === currency.symbol ? [classes['option-btn'], classes['option-selected']].join(' ')
+                                                    : classes['option-btn']}
                                                 onClick={this.props.onConvert}
                                                 value={currency.symbol}>
                                             {currency.symbol + ` ${currency.label}`}
