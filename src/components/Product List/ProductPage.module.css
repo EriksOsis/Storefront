@@ -2,7 +2,7 @@
     margin: 8rem 10rem 18rem 3rem;
     display: grid;
     grid-template-columns: 9.6rem 60rem 35rem;
-    gap: 2.7rem;
+    gap: 3.5rem;
     animation: appear-up .5s;
 }
 
@@ -22,7 +22,6 @@
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
-
 }
 
 .gallery div {
@@ -30,7 +29,7 @@
     display: flex;
     justify-content: center;
     transition: .2s;
-    overflow: hidden;
+    /*overflow: hidden;*/
     cursor: pointer;
 }
 
@@ -52,14 +51,16 @@
 
 .spotlight {
     height: 51.2rem;
-    overflow: hidden;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .spotlight img {
-    height: 51.2rem;
+    height: auto;
     width: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .product-info {
