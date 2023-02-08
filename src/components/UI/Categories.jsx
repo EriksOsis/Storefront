@@ -1,15 +1,8 @@
 import classes from "./Nav.module.css";
 import {NavLink} from "react-router-dom";
 import React from "react";
-import {gql} from "@apollo/client";
 import {Query} from "@apollo/client/react/components";
-
-const CATEGORY_QUERY = gql`
-{
-  categories {
-    name
-  }
-}`;
+import {CATEGORY_QUERY} from "../../Queries/queries";
 
 export class Categories extends React.Component {
     render() {

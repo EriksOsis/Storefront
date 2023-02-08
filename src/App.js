@@ -4,50 +4,10 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import ProductList from "./components/Product List/ProductList";
 import {Nav} from "./components/UI/Nav";
 import ProductPage from "./components/Product List/ProductPage";
-import {gql} from "@apollo/client";
 import {Bag} from "./components/Cart/Bag/Bag";
 import {CartProvider} from "./store/Cart_provider";
 import {CartContext} from "./store/Cart_context";
-
-const PRODUCTS_QUERY = gql`
-{
-    category {
-      products {
-        brand
-        inStock
-        name
-        id
-        gallery
-        description
-        category
-        attributes {
-          name
-          type
-          items {
-            id
-            value
-            displayValue
-          }
-          id
-        }
-        prices {
-          currency {
-            label
-            symbol
-          }
-          amount
-        }
-      }
-    }
-}`;
-
-const CURRENCY_QUERY = gql`
-{
-    currencies {
-        label
-        symbol
-    }
-}`;
+import {CURRENCY_QUERY, PRODUCTS_QUERY} from "./Queries/queries";
 
 class App extends React.Component {
     static contextType = CartContext;

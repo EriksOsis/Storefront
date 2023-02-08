@@ -29,20 +29,8 @@
     display: flex;
     justify-content: center;
     transition: .2s;
-    /*overflow: hidden;*/
     cursor: pointer;
 }
-
-.gallery div:hover {
-    transform: translate(-5%, -5%);
-    box-shadow: rgba(126, 216, 149, 0.4) 2px 2px, rgba(126, 216, 149, 0.3) 5px 5px, rgba(126, 216, 149, 0.2) 7px 7px, rgba(126, 216, 149, 0.1) 10px 10px, rgba(126, 216, 149, 0.05) 12px 12px;
-}
-
-.gallery div:active {
-    transform: translate(-2.5%, -2.5%);
-    box-shadow: rgba(126, 216, 149, 0.4) 1px 1px, rgba(126, 216, 149, 0.3) 5px 5px, rgba(126, 216, 149, 0.2) 3px 3px, rgba(126, 216, 149, 0.1) 5px 5px, rgba(126, 216, 149, 0.05) 6px 6px;
-}
-
 
 .gallery div img {
     height: 8.5rem;
