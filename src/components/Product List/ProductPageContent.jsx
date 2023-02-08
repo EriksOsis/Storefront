@@ -22,7 +22,7 @@ export class ProductPageContent extends Component {
         const defaultAttributes = {};
         props.attributes.forEach(attribute => {
             const key = attribute.name;
-            defaultAttributes[key] = attribute.items[0].value;
+            defaultAttributes[key] = `${key} ${attribute.items[0].value}`;
         });
         this.state.selectedAttributes = defaultAttributes;
     }
@@ -30,7 +30,7 @@ export class ProductPageContent extends Component {
 
     changeOptionHandler(key, value) {
         const newValue = {};
-        newValue[key] = value;
+        newValue[key] = `${key} ${value}`;
         this.setState({
             selectedAttributes: {...(this.state.selectedAttributes), ...newValue},
         });
@@ -87,19 +87,20 @@ export class ProductPageContent extends Component {
                                                 this.changeOptionHandler(attribute.name, item.value);
                                             }}
                                                     className={chosenAttributes.map((attribute) =>
-                                                        attribute).find(attribute => {
-                                                        return attribute === item.value ? attribute : undefined
-                                                    }) === item.value ? [classes['color'], classes['color-selected']].join(' ')
+                                                        attribute).find(chosenAttribute => {
+                                                        return `${attribute.name} ${item.value}` === chosenAttribute ? chosenAttribute : undefined
+                                                    }) === `${attribute.name} ${item.value}` ?
+                                                        [classes['color'], classes['color-selected']].join(' ')
                                                         : classes.color} style={{backgroundColor: item.value}}></button>
                                         )) :
                                         attribute.items.map((item) => (
                                             <button key={item.value} onClick={() => {
                                                 this.changeOptionHandler(attribute.name, item.value);
-                                            }} value={item.value}
+                                            }}
                                                     className={chosenAttributes.map((attribute) =>
-                                                        attribute).find(attribute => {
-                                                        return item.value === attribute ? attribute : undefined
-                                                    }) === item.value ?
+                                                        attribute).find(chosenAttribute => {
+                                                        return `${attribute.name} ${item.value}` === chosenAttribute ? chosenAttribute : undefined
+                                                    }) === `${attribute.name} ${item.value}` ?
                                                         [classes['size'], classes['selected']].join(' ')
                                                         : classes['size']}>{item.value}</button>
 

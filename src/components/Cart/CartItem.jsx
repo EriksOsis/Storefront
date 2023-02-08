@@ -26,11 +26,10 @@ export class CartItem extends React.Component {
                                 {
                                     attribute.name === 'Color' ?
                                         attribute.items.map((item) => (
-                                            <button
-                                                key={item.value}
+                                            <button key={item.value}
                                                 className={
                                                     selectedAttributes
-                                                        .map((attribute) => attribute)
+                                                        .map((attribute) => attribute.split(" ").pop())
                                                         .find((attribute) => attribute === item.value) === item.value
                                                         ? [classes['color'], classes['color-selected']].join(' ')
                                                         : classes.color
@@ -39,11 +38,10 @@ export class CartItem extends React.Component {
                                             ></button>
                                         )) :
                                         attribute.items.map((item) => (
-                                            <button
-                                                key={item.value}
+                                            <button key={item.value}
                                                 className={
                                                     selectedAttributes
-                                                        .map((attribute) => attribute)
+                                                        .map((attribute) => attribute.split(" ").pop())
                                                         .find((attribute) => attribute === item.value) === item.value
                                                         ? [classes['cart-btn'], classes['selected']].join(' ')
                                                         : classes['cart-btn']

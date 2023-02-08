@@ -49,14 +49,14 @@ export class BagItem extends React.Component {
                                         attribute.name === 'Color' ?
                                             attribute.items.map((item) => (
                                                 <button key={item.value}
-                                                        className={this.selectedAttributes.map((attribute) => attribute).find(attribute => {
+                                                        className={this.selectedAttributes.map((attribute) => attribute.split(" ").pop()).find(attribute => {
                                                             return attribute === item.value ? attribute : undefined
                                                         }) === item.value ? [classes['color'], classes['color-selected']].join(' ') : classes.color}
                                                         style={{backgroundColor: item.value}}></button>
                                             )) :
                                             attribute.items.map((item) => (
                                                 <button key={item.value}
-                                                        className={this.selectedAttributes.map((attribute) => attribute).find(attribute => {
+                                                        className={this.selectedAttributes.map((attribute) => attribute.split(" ").pop()).find(attribute => {
                                                             return attribute === item.value ? attribute : undefined
                                                         }) === item.value ?
                                                             [classes['cart-btn'], classes['select'], classes['selected']].join(' ')
