@@ -4,6 +4,7 @@ import React from 'react';
 export class CartItem extends React.Component {
     render() {
         const selectedAttributes = this.props.id.substr(this.props.initId.length + 1).split('&');
+        // selectedAttributes.map((attribute) => console.log(attribute));
 
         return (
             <div className={classes['cart-item']}>
@@ -27,28 +28,26 @@ export class CartItem extends React.Component {
                                     attribute.name === 'Color' ?
                                         attribute.items.map((item) => (
                                             <button key={item.value}
-                                                className={
-                                                    selectedAttributes
-                                                        .map((attribute) => attribute.split(" ").pop())
-                                                        .find((attribute) => attribute === item.value) === item.value
-                                                        ? [classes['color'], classes['color-selected']].join(' ')
-                                                        : classes.color
-                                                }
-                                                style={{backgroundColor: item.value}}
-                                            ></button>
+                                                    className={
+                                                        selectedAttributes.map((attribute) => attribute)
+                                                            .find((chosenAttribute) => {
+                                                                return `${attribute.name} ${item.value}` === chosenAttribute ? chosenAttribute : undefined
+                                                            }) === `${attribute.name} ${item.value}`
+                                                            ? [classes['color'], classes['color-selected']].join(' ')
+                                                            : classes.color
+                                                    }
+                                                    style={{backgroundColor: item.value}}></button>
                                         )) :
                                         attribute.items.map((item) => (
                                             <button key={item.value}
-                                                className={
-                                                    selectedAttributes
-                                                        .map((attribute) => attribute.split(" ").pop())
-                                                        .find((attribute) => attribute === item.value) === item.value
-                                                        ? [classes['cart-btn'], classes['selected']].join(' ')
-                                                        : classes['cart-btn']
-                                                }
-                                            >
-                                                {item.value}
-                                            </button>
+                                                    className={
+                                                        selectedAttributes.map((attribute) => attribute)
+                                                            .find((chosenAttribute) => {
+                                                                return `${attribute.name} ${item.value}` === chosenAttribute ? chosenAttribute : undefined
+                                                            }) === `${attribute.name} ${item.value}`
+                                                            ? [classes['cart-btn'], classes['selected']].join(' ')
+                                                            : classes['cart-btn']
+                                                    }>{item.value}</button>
                                         ))
                                 }
                             </div>

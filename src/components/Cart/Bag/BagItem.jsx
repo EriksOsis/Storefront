@@ -49,16 +49,16 @@ export class BagItem extends React.Component {
                                         attribute.name === 'Color' ?
                                             attribute.items.map((item) => (
                                                 <button key={item.value}
-                                                        className={this.selectedAttributes.map((attribute) => attribute.split(" ").pop()).find(attribute => {
-                                                            return attribute === item.value ? attribute : undefined
-                                                        }) === item.value ? [classes['color'], classes['color-selected']].join(' ') : classes.color}
+                                                        className={this.selectedAttributes.map((attribute) => attribute).find(chosenAttribute => {
+                                                            return `${attribute.name} ${item.value}` === chosenAttribute ? chosenAttribute : undefined
+                                                        }) === `${attribute.name} ${item.value}` ? [classes['color'], classes['color-selected']].join(' ') : classes.color}
                                                         style={{backgroundColor: item.value}}></button>
                                             )) :
                                             attribute.items.map((item) => (
                                                 <button key={item.value}
-                                                        className={this.selectedAttributes.map((attribute) => attribute.split(" ").pop()).find(attribute => {
-                                                            return attribute === item.value ? attribute : undefined
-                                                        }) === item.value ?
+                                                        className={this.selectedAttributes.map((attribute) => attribute).find(chosenAttribute => {
+                                                            return `${attribute.name} ${item.value}` === chosenAttribute ? chosenAttribute : undefined
+                                                        }) === `${attribute.name} ${item.value}` ?
                                                             [classes['cart-btn'], classes['select'], classes['selected']].join(' ')
                                                             : [classes['cart-btn'], classes.select].join(' ')}>
                                                     {item.value}
@@ -83,24 +83,24 @@ export class BagItem extends React.Component {
                             <img src={this.props.gallery[this.state.imgGallery]}
                                  alt={`${this.props.name} in shopping cart`}/>
                             {this.props.gallery.length > 1 &&
-                            <div className={classes.carousel}>
-                                <div className={classes['carousel-btn']} onClick={this.previousImg}>
-                                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M7.25 1.06857L1.625 6.6876L7.25 12.3066" stroke="white"
-                                              strokeWidth="1.5"
-                                              strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div className={classes['carousel-btn']} onClick={this.nextImg}>
-                                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.75 1.06808L6.375 6.68711L0.75 12.3062" stroke="white"
-                                              strokeWidth="1.5"
-                                              strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
-                                </div>
-                            </div>}
+                                <div className={classes.carousel}>
+                                    <div className={classes['carousel-btn']} onClick={this.previousImg}>
+                                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.25 1.06857L1.625 6.6876L7.25 12.3066" stroke="white"
+                                                  strokeWidth="1.5"
+                                                  strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div className={classes['carousel-btn']} onClick={this.nextImg}>
+                                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.75 1.06808L6.375 6.68711L0.75 12.3062" stroke="white"
+                                                  strokeWidth="1.5"
+                                                  strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>}
                         </div>
                     </div>
                 </div>
